@@ -1,4 +1,5 @@
 import React from 'react';
+import { useCounter } from '../../hooks/useCounter';
 import { useFetch } from '../../hooks/useFetch';
 import { HeroesContext } from './HeroesContext';
 
@@ -6,6 +7,7 @@ export const HeroesProvider = ({ children }) => {
     const { data, isLoading } = useFetch(
         'https://akabab.github.io/superhero-api/api/all.json'
     );
+    const { counter, decrement, increment, reset } = useCounter(1);
 
     const getHeroesByPublishers = publisher => {
         if (data !== null)
@@ -25,8 +27,8 @@ export const HeroesProvider = ({ children }) => {
     };
 
     const getPublishers = () => {
-        if(data!==null) return [...new Set (data.map(hero=> hero.publisher))]
-        
+        if (data !== null)
+            return [...new Set(data.map(hero => hero.publisher))];
     };
 
     return (
@@ -38,6 +40,10 @@ export const HeroesProvider = ({ children }) => {
                 getHeroesByPublishers,
                 data,
                 isLoading,
+                counter,
+                decrement,
+                increment,
+                reset,
             }}
         >
             {children}
