@@ -17,7 +17,9 @@ export const HeroPage = () => {
     };
 
     return (
-        <div className='row mt-5'>
+        <div className='imageBackground'>
+            <div className='maskBackground'>
+            <div className='row p-4'>
             <div className='col-4 animate__animated animate__fadeInLeft'>
                 <img
                     src={hero.image}
@@ -27,29 +29,36 @@ export const HeroPage = () => {
             </div>
             <div className='col-8'>
                 <h3>{hero.name}</h3>
-                <ul className='list-group list-group-flush'>
-                    <li className='list-group-item'>
+                <ul className='list-group list-group-flush '>
+                    <li className='list-group-item bg-transparent'>
                         <b>Alter ego: </b>
                         {hero.alterEgos}
                     </li>
-                    <li className='list-group-item'>
+                    <li className='list-group-item bg-transparent'>
                         <b>Publisher: </b>
                         {hero.publisher}
                     </li>
-                    <li className='list-group-item'>
-                        <b>First Appareance ego: </b>
+                    <li className='list-group-item bg-transparent'>
+                        <b>First Appareance: </b>
                         {hero.firstAppearance}
                     </li>
                 </ul>
                 <p>{hero.fullName}</p>
 
                 <button
-                    className='btn btn-outline-primary'
+                    className='btn btn-outline-dark'
                     onClick={onNavigateBack}
                 >
                     Back...
                 </button>
             </div>
         </div>
+
+        </div>
+
+            </div>
+
+
+        
     );
 };

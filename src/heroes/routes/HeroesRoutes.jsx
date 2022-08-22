@@ -6,22 +6,23 @@ import { SearchPage } from '../pages/SearchPage';
 import { HeroesProvider } from '../context/HeroesProvider';
 import { HeroByPublisherPage } from '../pages/HeroByPublisherPage';
 
+
 export const HeroesRoutes = () => {
     return (
-        <>
+        <div>
             <HeroesProvider>
                 <Navbar />
 
-                <div className='container'>
+                <div >
                     <Routes>
                         <Route path='select' element={<HeroByPublisherPage />} />
                         <Route path='search' element={<SearchPage />} />
                         <Route path='hero/:heroId' element={<HeroPage />} />
 
-                        <Route path='/' element={<Navigate to='/select' />} />
+                        <Route path='/*' element={<Navigate to='/select' />} />
                     </Routes>
                 </div>
             </HeroesProvider>
-        </>
+        </div>
     );
 };
